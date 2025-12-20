@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- LEFT: Add Expense -->
+    <section class="card">
+      <h1>📥 Add / Log Expense</h1>
+      <form id="expense-form">
+        <div class="form-row">
+          <input type="text" id="customerId" placeholder="Customer ID (e.g., user123)" required />
+        </div>
+        <div class="form-row">
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Shopping</option>
+            <option>Utilities</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input type="number" id="amount" placeholder="Amount" step="0.01" required />
+        </div>
+        <div class="form-row">
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-row">
+          <textarea id="note" placeholder="Note (optional)"></textarea>
+        </div>
+        <div class="form-row">
+          <button class="primary" type="submit">Add Expense</button>
+        </div>
+      </form>
+      <div style="margin-top:10px" class="small">All data visible in MongoDB Compass in <code>expenseTracker</code> → <code>expenses</code> collection.</div>
+    </section>
+
+    <!-- RIGHT: List, filters, summary -->
+    <section>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h1>📄 Expenses</h1>
+          <div class="small">Filter & Summary</div>
+        </div>
+
+        <div style="margin-top:12px" class="controls">
+          <input id="filterCustomer" placeholder="Customer ID" />
+          <select id="filterCategory"><option value="">All categories</option><option>Food</option><option>Transport</option><option>Shopping</option><option>Utilities</option><option>Other</option></select>
+          <input id="startDate" type="date" />
+          <input id="endDate" type="date" />
+          <button id="btnFilter">Apply</button>
+          <button id="btnClear">Clear</button>
+        </div>
+
+        <div style="margin-top:12px" class="expenses" id="expenses"></div>
+
+        <div class="summary" id="summaryArea">
+          <h1 style="margin:0">📊 Monthly Summary</h1>
+          <div style="margin-top:8px; display:flex; gap:8px;">
+            <input id="summaryCustomer" placeholder="Customer ID" />
+            <input id="summaryYear" placeholder="Year" type="number" style="width:100px"/>
+            <input id="summaryMonth" placeholder="Month (1-12)" type="number" style="width:100px"/>
+            <button id="btnSummary">Get</button>
+          </div>
+          <div id="summaryResult" style="margin-top:12px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Edit Modal container -->
+  <div id="modalRoot"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
