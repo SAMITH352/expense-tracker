@@ -58,8 +58,7 @@ Each transaction can include:
 - Title / description
 - Amount
 - Type (income or expense)
-- Category *(if implemented)*
-- Date *(if implemented)*
+
 
 ### 2. View Transaction History
 All added transactions are displayed in a list so users can review their financial activity.
