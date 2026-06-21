@@ -38,7 +38,7 @@ The application is useful for:
 
 ## 🛠️ Tech Stack
 
-> Update this section if your project uses a different stack.
+
 
 - **Frontend:** HTML, CSS, JavaScript
 - **UI Design:** Responsive Web Design
